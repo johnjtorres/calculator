@@ -3,3 +3,31 @@
 *::after {
   box-sizing: border-box;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  flex-basis: auto;
+  width: 75%;
+  background-color: black;
+  border-radius: 1rem;
+  padding: 3rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 4rem;
+}
+
+.display {
+  background-color: lightslategray;
+  text-align: right;
+  border-radius: 1rem;
+}
