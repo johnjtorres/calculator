@@ -32,7 +32,7 @@ body {
   font-family: 'Segment7Standard';
   font-weight: normal;
   font-style: italic;
-  padding-top: 0.5rem;
+  padding-top: 3rem;
 }
 
 #btn-container {
@@ -44,8 +44,10 @@ body {
 button {
   font-size: 2rem;
   flex: 0 1 25%;
+  aspect-ratio: 2/1;
 }
 
 #zero {
   flex-grow: 1;
+  aspect-ratio: 0;
 }
