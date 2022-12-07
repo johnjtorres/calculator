@@ -62,6 +62,10 @@ function updateDisplay() {
 const numBtns = document.querySelectorAll('.num');
 numBtns.forEach((num) =>
   num.addEventListener('click', () => {
+    const pressed = num.textContent;
+    if ((needsDisplayCleared || isNaN(parseDisplay())) && pressed === '0') {
+      return;
+    }
     if (needsDisplayCleared) {
       clearDisplay();
       needsDisplayCleared = false;
