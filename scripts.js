@@ -79,3 +79,6 @@ function clearAll() {
 }
 
 clearBtn.addEventListener('click', () => clearAll);
+
+// Operator buttons
+const operators = document.querySelectorAll('.operator');
