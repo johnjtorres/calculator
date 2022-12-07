@@ -41,6 +41,14 @@ function clearResult() {
   result = null;
 }
 
+function setFirst() {
+  first = parseInt(display.textContent);
+}
+
+function setSecond() {
+  second = parseInt(display.textContent);
+}
+
 // Display
 const display = document.querySelector('#display');
 
