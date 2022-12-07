@@ -87,6 +87,7 @@ let curOp;
 const operators = document.querySelectorAll('.operator');
 operators.forEach((operator) =>
   operator.addEventListener('click', () => {
+    if (isNaN(parseDisplay())) return;
     first = parseDisplay();
     curOp = operator.textContent;
     needsDisplayCleared = true;
