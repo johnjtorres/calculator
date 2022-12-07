@@ -86,6 +86,6 @@ const equals = document.querySelector('#equal');
 equals.addEventListener('click', () => {
   if (!(curOp && num1 && num2)) return;
   num2 = parseInt(display.textContent);
-  const result = operate(curOp, num1, num2);
+  result = operate(curOp, num1, num2);
   display.textContent = result;
 });
