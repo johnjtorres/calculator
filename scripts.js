@@ -41,17 +41,13 @@ function clearResult() {
   result = null;
 }
 
-function setFirst() {
-  first = parseInt(display.textContent);
-}
-
-function setSecond() {
-  second = parseInt(display.textContent);
-}
-
 // Display
 const display = document.querySelector('#display');
 const needsDisplayCleared = false;
+
+function parseDisplay() {
+  return parseInt(display.textContent);
+}
 
 function clearDisplay() {
   display.textContent = '';
@@ -91,7 +87,7 @@ let curOp;
 const operators = document.querySelectorAll('.operator');
 operators.forEach((operator) =>
   operator.addEventListener('click', () => {
-    setFirst();
+    first = parseDisplay();
     curOp = operator.textContent;
     needsDisplayCleared = true;
     console.log(curOp);
