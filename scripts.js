@@ -84,7 +84,7 @@ operators.forEach((operator) =>
 // Equal
 const equals = document.querySelector('#equal');
 equals.addEventListener('click', () => {
-  if (!(curOp && num1 && num2)) return;
+  if (!(curOp && num1)) return;
   num2 = parseInt(display.textContent);
   result = operate(curOp, num1, num2);
   display.textContent = result;
