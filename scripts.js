@@ -51,18 +51,39 @@ nums.forEach((num) =>
 function clearDisplay() {
   display.textContent = '';
 }
+function clearOperands() {
+  num1 = null;
+  num2 = null;
+}
+function clearOperator() {
+  curOp = null;
+}
+function clearAll() {
+  clearDisplay();
+  clearOperands();
+  clearOperator();
+}
 const clear = document.querySelector('#clear');
-clear.addEventListener('click', clearDisplay);
+clear.addEventListener('click', clearAll);
 
 // Operators
 let curOp;
-const operands = [];
+let num1, num2;
 const operators = document.querySelectorAll('.operator');
 operators.forEach((operator) =>
   operator.addEventListener('click', () => {
     needsCleared = true;
-    operands[0] = parseInt(display.textContent);
+    num1 = parseInt(display.textContent);
     curOp = operator.textContent;
     console.log(curOp);
   })
 );
+
+// Equal
+const equals = document.querySelector('#equal');
+equals.addEventListener('click', () => {
+  num2 = parseInt(display.textContent);
+  const result = operate(curOp, num1, num2);
+  display.textContent = result;
+  num1 = result;
+});
