@@ -28,3 +28,20 @@ function operate(operator, a, b) {
       return divide(a, b);
   }
 }
+
+const display = document.querySelector('#display');
+// TODO: prevent display content from overflowing
+
+// Numbers
+const nums = document.querySelectorAll('.num');
+nums.forEach((num) =>
+  num.addEventListener('click', () => {
+    display.textContent += num.textContent;
+  })
+);
+
+// Clear
+const clear = document.querySelector('#clear');
+clear.addEventListener('click', () => {
+  display.textContent = '';
+});
