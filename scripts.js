@@ -29,6 +29,9 @@ function operate(operator, a, b) {
   }
 }
 
+// Nums and result
+let num1, num2, result;
+
 // Display
 let needsCleared = false;
 const display = document.querySelector('#display');
@@ -68,7 +71,6 @@ clear.addEventListener('click', clearAll);
 
 // Operators
 let curOp;
-let num1, num2;
 const operators = document.querySelectorAll('.operator');
 operators.forEach((operator) =>
   operator.addEventListener('click', () => {
