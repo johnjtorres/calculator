@@ -51,6 +51,7 @@ function setSecond() {
 
 // Display
 const display = document.querySelector('#display');
+const needsDisplayCleared = false;
 
 function clearDisplay() {
   display.textContent = '';
@@ -81,4 +82,14 @@ function clearAll() {
 clearBtn.addEventListener('click', () => clearAll);
 
 // Operator buttons
+let curOp;
+
 const operators = document.querySelectorAll('.operator');
+operators.forEach((operator) =>
+  operator.addEventListener('click', () => {
+    setFirst();
+    curOp = operator.textContent;
+    needsDisplayCleared = true;
+    console.log(curOp);
+  })
+);
