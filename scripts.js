@@ -66,6 +66,10 @@ function updateDisplay() {
 const numBtns = document.querySelectorAll('.num');
 numBtns.forEach((num) =>
   num.addEventListener('click', () => {
+    if (needsDisplayCleared) {
+      clearDisplay();
+      needsDisplayCleared = false;
+    }
     display.textContent += num.textContent;
   })
 );
@@ -79,7 +83,7 @@ function clearAll() {
   clearResult();
 }
 
-clearBtn.addEventListener('click', () => clearAll);
+clearBtn.addEventListener('click', clearAll);
 
 // Operator buttons
 let curOp;
