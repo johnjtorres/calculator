@@ -29,6 +29,8 @@ function operate(operator, a, b) {
   }
 }
 
+// Display
+let needsCleared = false;
 const display = document.querySelector('#display');
 // TODO: prevent display content from overflowing
 
@@ -36,12 +38,31 @@ const display = document.querySelector('#display');
 const nums = document.querySelectorAll('.num');
 nums.forEach((num) =>
   num.addEventListener('click', () => {
+    if (needsCleared) {
+      clearDisplay();
+      needsCleared = false;
+    }
+    if (!display.textContent && num.textContent === '0') return;
     display.textContent += num.textContent;
   })
 );
 
 // Clear
-const clear = document.querySelector('#clear');
-clear.addEventListener('click', () => {
+function clearDisplay() {
   display.textContent = '';
-});
+}
+const clear = document.querySelector('#clear');
+clear.addEventListener('click', clearDisplay);
+
+// Operators
+let curOp;
+const operands = [];
+const operators = document.querySelectorAll('.operator');
+operators.forEach((operator) =>
+  operator.addEventListener('click', () => {
+    needsCleared = true;
+    operands[0] = parseInt(display.textContent);
+    curOp = operator.textContent;
+    console.log(curOp);
+  })
+);
