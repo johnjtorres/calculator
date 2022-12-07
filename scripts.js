@@ -85,6 +85,7 @@ operators.forEach((operator) =>
 const equals = document.querySelector('#equal');
 equals.addEventListener('click', () => {
   if (!curOp || isNaN(num1)) return;
+  needsCleared = true;
   num2 = num2 ? num2 : parseInt(display.textContent);
   result = operate(curOp, num1, num2);
   num1 = result;
