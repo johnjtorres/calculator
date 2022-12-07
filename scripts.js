@@ -29,19 +29,45 @@ function operate(operator, a, b) {
   }
 }
 
-const display = document.querySelector('#display');
-// TODO: prevent display content from overflowing
+// Calculator variables
+let first, second, result;
 
-// Numbers
-const nums = document.querySelectorAll('.num');
-nums.forEach((num) =>
+function clearInputs() {
+  first = null;
+  second = null;
+}
+
+function clearResult() {
+  result = null;
+}
+
+// Display
+const display = document.querySelector('#display');
+
+function clearDisplay() {
+  display.textContent = '';
+}
+
+function updateDisplay() {
+  // TODO: prevent display content from overflowing
+  display.textContent = result;
+}
+
+// Number buttons
+const numBtns = document.querySelectorAll('.num');
+numBtns.forEach((num) =>
   num.addEventListener('click', () => {
     display.textContent += num.textContent;
   })
 );
 
-// Clear
-const clear = document.querySelector('#clear');
-clear.addEventListener('click', () => {
-  display.textContent = '';
-});
+// Clear button
+const clearBtn = document.querySelector('#clear');
+
+function clearAll() {
+  clearDisplay();
+  clearInputs();
+  clearResult();
+}
+
+clearBtn.addEventListener('click', () => clearAll);
