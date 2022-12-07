@@ -43,7 +43,7 @@ function clearResult() {
 
 // Display
 const display = document.querySelector('#display');
-const needsDisplayCleared = false;
+let needsDisplayCleared = false;
 
 function parseDisplay() {
   return parseInt(display.textContent);
