@@ -41,6 +41,10 @@ function clearResult() {
   result = null;
 }
 
+function clearOp() {
+  curOp = null;
+}
+
 // Display
 const display = document.querySelector("#display");
 let needsDisplayCleared = false;
@@ -81,6 +85,7 @@ function clearAll() {
   clearDisplay();
   clearInputs();
   clearResult();
+  clearOp();
 }
 
 clearBtn.addEventListener("click", clearAll);
@@ -95,6 +100,18 @@ operators.forEach((operator) =>
     first = parseDisplay();
     curOp = operator.textContent;
     needsDisplayCleared = true;
-    console.log(curOp);
   })
 );
+
+// Equal key
+const equal = document.querySelector("#equal");
+equal.addEventListener("click", () => {
+  if (isNaN(parseDisplay())) return;
+  if (!curOp) return;
+  second = parseDisplay();
+  result = operate(curOp, first, second);
+  needsDisplayCleared = true;
+  updateDisplay();
+  clearInputs();
+  clearOp();
+});
