@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 function add(a, b) {
   return a + b;
@@ -18,13 +18,13 @@ function divide(a, b) {
 
 function operate(operator, a, b) {
   switch (operator) {
-    case '+':
+    case "+":
       return add(a, b);
-    case '-':
+    case "-":
       return subtract(a, b);
-    case '*':
+    case "*":
       return multiply(a, b);
-    case '/':
+    case "/":
       return divide(a, b);
   }
 }
@@ -42,7 +42,7 @@ function clearResult() {
 }
 
 // Display
-const display = document.querySelector('#display');
+const display = document.querySelector("#display");
 let needsDisplayCleared = false;
 
 function parseDisplay() {
@@ -50,7 +50,7 @@ function parseDisplay() {
 }
 
 function clearDisplay() {
-  display.textContent = '';
+  display.textContent = "";
 }
 
 function updateDisplay() {
@@ -59,11 +59,11 @@ function updateDisplay() {
 }
 
 // Number buttons
-const numBtns = document.querySelectorAll('.num');
+const numBtns = document.querySelectorAll(".num");
 numBtns.forEach((num) =>
-  num.addEventListener('click', () => {
+  num.addEventListener("click", () => {
     const pressed = num.textContent;
-    if ((needsDisplayCleared || isNaN(parseDisplay())) && pressed === '0') {
+    if ((needsDisplayCleared || isNaN(parseDisplay())) && pressed === "0") {
       return;
     }
     if (needsDisplayCleared) {
@@ -75,7 +75,7 @@ numBtns.forEach((num) =>
 );
 
 // Clear button
-const clearBtn = document.querySelector('#clear');
+const clearBtn = document.querySelector("#clear");
 
 function clearAll() {
   clearDisplay();
@@ -83,14 +83,14 @@ function clearAll() {
   clearResult();
 }
 
-clearBtn.addEventListener('click', clearAll);
+clearBtn.addEventListener("click", clearAll);
 
 // Operator buttons
 let curOp;
 
-const operators = document.querySelectorAll('.operator');
+const operators = document.querySelectorAll(".operator");
 operators.forEach((operator) =>
-  operator.addEventListener('click', () => {
+  operator.addEventListener("click", () => {
     if (isNaN(parseDisplay())) return;
     first = parseDisplay();
     curOp = operator.textContent;
