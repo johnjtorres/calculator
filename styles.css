@@ -19,7 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   flex-basis: auto;
-  width: 60%;
+  width: 30%;
   background-color: black;
   font-size: 2rem;
 }
